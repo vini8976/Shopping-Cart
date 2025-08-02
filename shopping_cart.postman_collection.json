@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "f223bc35-fa6d-411a-8120-3019c89c7b43",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47236300",
+		"_collection_link": "https://vini8976-9097025.postman.co/workspace/Vinita-Prakash-Singh's-Workspac~826fba97-fe33-430c-8254-a9cfa0dc80ea/collection/47236300-f223bc35-fa6d-411a-8120-3019c89c7b43?action=share&source=collection_link&creator=47236300"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/items\n",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"vinita\",\r\n  \"password\": \"123456\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users\n"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
