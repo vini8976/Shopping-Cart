@@ -1,31 +1,27 @@
-# Use official Golang image as the builder
-FROM golang:1.22-alpine AS builder
+# Use newer Go version (1.24.5 or higher)
+FROM golang:1.24.5-alpine AS builder
 
-# Set working directory inside container
 WORKDIR /app
 
-# Copy go.mod and go.sum first to leverage Docker layer caching
+# Copy go.mod and go.sum
 COPY go.mod go.sum ./
 
 # Download dependencies
 RUN go mod download
 
-# Copy the rest of the code
+# Copy the rest of the source code
 COPY . .
 
-# Build the Go application
+# Build the Go app
 RUN go build -o shoppingcart .
 
-# Use a minimal image for final output
+# Final image
 FROM alpine:latest
 
 WORKDIR /root/
 
-# Copy the binary from the builder stage
 COPY --from=builder /app/shoppingcart .
 
-# Expose port
 EXPOSE 8080
 
-# Start the app
 CMD ["./shoppingcart"]
